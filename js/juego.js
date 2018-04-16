@@ -1,5 +1,5 @@
 // Arreglo que contiene las intrucciones del juego
-var instrucciones = ["Utilizar las flechas para mover las piezas","Tenés que ordenar las piezas hasta obtener la imagen objetivo!","SUERTE"];
+var instrucciones = ["Utilizar las flechas de tu teclado para mover las piezas","Ordenar las piezas hasta obtener la imagen objetivo!"];
 // Arreglo para ir guardando los movimientos que se vayan realizando
 var movimientos = [];
 
@@ -21,14 +21,13 @@ Cada elemento de este arreglo deberá ser mostrado en la lista con id 'lista-ins
 Para eso deberás usar la función ya implementada mostrarInstruccionEnLista().
 Podés ver su implementación en la ultima parte de este codigo. */
 function mostrarInstrucciones(instrucciones) {
-    for (var i=0;i<3;i++) {
+    for (var i=0;i<2;i++) {
           mostrarInstruccionEnLista(instrucciones[i],"lista-instrucciones")
     }
 }
 
 /* COMPLETAR: Crear función que agregue la última dirección al arreglo de movimientos
 y utilice actualizarUltimoMovimiento para mostrarlo en pantalla */
-
 function agregarUltimoMovimiento (direccion){
       movimientos.push(direccion);
       actualizarUltimoMovimiento(direccion);
@@ -37,24 +36,31 @@ function agregarUltimoMovimiento (direccion){
 /* Esta función va a chequear si el Rompecabezas esta en la posicion ganadora.
 Existen diferentes formas de hacer este chequeo a partir de la grilla. */
 function chequearSiGano() {
-    //COMPLETAR
+    var cont = 1;
+    for (var fila = 0; fila < grilla.length; fila++) {
+      for (var columna = 0; columna < grilla[fila].length; columna++) {
+          if (grilla[fila][columna] != cont) {
+            return false;
+          }
+          else {
+            cont++;
+          }
+        }
+    }
+    return true;
 }
 
 // Implementar alguna forma de mostrar un cartel que avise que ganaste el juego
 function mostrarCartelGanador() {
-    alert("TENEMOS UN GANADOR!!");
+    if (chequearSiGano()){
+      alert("TENEMOS UN GANADOR!!")
+    }
 }
 
 /* Función que intercambia dos posiciones en la grilla.
 Pensar como intercambiar dos posiciones en un arreglo de arreglos.
-Para que tengas en cuenta:
-Si queremos intercambiar las posiciones [1,2] con la [0, 0], si hacemos:
-arreglo[1][2] = arreglo[0][0];
-arreglo[0][0] = arreglo[1][2];
-
-En vez de intercambiar esos valores vamos a terminar teniendo en ambas posiciones el mismo valor.
-Se te ocurre cómo solucionar esto con una variable temporal?
 */
+
 function intercambiarPosicionesGrilla(filaPos1, columnaPos1, filaPos2, columnaPos2) {
     var temp = grilla[filaPos1][columnaPos1];
     grilla[filaPos1][columnaPos1]=grilla[filaPos2][columnaPos2];
@@ -67,10 +73,9 @@ function actualizarPosicionVacia(nuevaFila, nuevaColumna) {
   columnaVacia = nuevaColumna;
 }
 
-
 // Para chequear si la posicón está dentro de la grilla.
 function posicionValida(fila, columna) {
-    //COMPLETAR
+    return fila >= 0 && fila <= 2 && columna >= 0 && columna <= 2;
 }
 
 /* Movimiento de fichas, en este caso la que se mueve es la blanca intercambiando su posición con otro elemento.
@@ -93,12 +98,14 @@ function moverEnDireccion(direccion) {
 
   // Mueve pieza hacia la derecha, reemplazandola con la blanca
   else if (direccion === codigosDireccion.DERECHA) {
-    //COMPLETAR
+    nuevaFilaPiezaVacia = filaVacia;
+    nuevaColumnaPiezaVacia = columnaVacia -1;
   }
 
   // Mueve pieza hacia la izquierda, reemplazandola con la blanca
   else if (direccion === codigosDireccion.IZQUIERDA) {
-    // COMPLETAR
+    nuevaFilaPiezaVacia = filaVacia;
+    nuevaColumnaPiezaVacia = columnaVacia +1;
   }
 
   /* A continuación se chequea si la nueva posición es válida, si lo es, se intercambia.
@@ -108,9 +115,7 @@ function moverEnDireccion(direccion) {
     if (posicionValida(nuevaFilaPiezaVacia, nuevaColumnaPiezaVacia)) {
         intercambiarPosiciones(filaVacia, columnaVacia, nuevaFilaPiezaVacia, nuevaColumnaPiezaVacia);
         actualizarPosicionVacia(nuevaFilaPiezaVacia, nuevaColumnaPiezaVacia);
-
-  //COMPLETAR: Agregar la dirección del movimiento al arreglo de movimientos
-
+        agregarUltimoMovimiento(direccion);
     }
 }
 

@@ -1,11 +1,20 @@
 /*Código armado por La Foca Loca S.A. No modificar*/
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Do Hyeon', sans-serif;
   width: 940px;
   margin: 5% auto;
   min-height: 100%;
   background-image: url(../images/adventure.jpg);
+  border: 5px solid rgb(163, 171, 187);
 }
+
+.alert {
+    padding: 20px;
+    background-color: #f44336; /* Red */
+    color: white;
+    margin-bottom: 15px;
+}
+
 ul {
   padding-left: 0;
   list-style: none;
@@ -21,7 +30,19 @@ li::before {
 
 .col-40 h1 {
   font-size: 20px;
-  color: #E84A5F;
+  color:white;
+  padding: 5px;
+  font-family: 'Righteous', cursive;
+}
+
+#titulo {
+  background-color :rgb(246, 79, 109);
+}
+
+.col-40 h2 {
+  font-size: 18px;
+  text-decoration: underline;
+  color:#2B8087;
 }
 
 .col-40, .col-60 {
@@ -32,7 +53,7 @@ li::before {
 .col-40 {
   background: #FFF;
   padding: 30px;
-  color: #000; 
+  color: #000;
 }
 
 .col-60 {
@@ -43,10 +64,6 @@ li::before {
 
 #flecha{
   font-size: 60px;
-}
-
-.texto-centrado {
-  text-align: center;
 }
 
 #juego div {
@@ -60,7 +77,7 @@ li::before {
   height: 33%;
 }
 
-#pieza1, #pieza2,#pieza3, #pieza4,#pieza5, #pieza6, #pieza7, #pieza8{
+#pieza1, #pieza2,#pieza3, #pieza4,#pieza5, #pieza6, #pieza7, #pieza8, #pieza9{
   width: 202px;
   height: 202px;
 }
