@@ -1,22 +1,15 @@
 /*Código armado por La Foca Loca S.A. No modificar*/
 body {
   font-family: 'Do Hyeon', sans-serif;
-  width: 940px;
-  margin: 5% auto;
+  width: 1000px;
+  margin: 2% auto;
   min-height: 100%;
   background-image: url(../images/adventure.jpg);
   border: 5px solid rgb(163, 171, 187);
 }
 
-.alert {
-    padding: 20px;
-    background-color: #f44336; /* Red */
-    color: white;
-    margin-bottom: 15px;
-}
-
 ul {
-  padding-left: 0;
+  padding-left: 20px;
   list-style: none;
 }
 li {
@@ -24,8 +17,18 @@ li {
   animation: fadein 5s;
 }
 li::before {
-  content: "• ";
+  content: "> ";
   color: #EC6778;
+}
+
+/****************************************************/
+
+/*.col-40*/
+
+.col-40 {
+  background: #FFF;
+  padding: 15px;
+  color: #000;
 }
 
 .col-40 h1 {
@@ -35,35 +38,58 @@ li::before {
   font-family: 'Righteous', cursive;
 }
 
-#titulo {
-  background-color :rgb(246, 79, 109);
-}
-
 .col-40 h2 {
   font-size: 18px;
   text-decoration: underline;
   color:#2B8087;
+  margin-bottom: 10px;
 }
+
+.col-40 h3 {
+  font-size: 18px;
+  text-decoration: none;
+  color:#2B8087;
+  margin-bottom: 10px;
+}
+
+#mezclar {
+      background-color: #61A9B0;
+      border: none;
+      color: white;
+      padding: 0px 7px;
+      text-align: center;
+      display: inline-block;
+      font-size: 13px;
+      font-weight: bold;
+      cursor: pointer;
+}
+
+#titulo {
+  background-color :rgb(246, 79, 109);
+}
+
+#flecha{
+  font-size: 60px;
+}
+
+#tiempo{
+  text-align: center;
+  font-size: 25px;
+}
+/****************************************************/
 
 .col-40, .col-60 {
   display: table-cell;
   margin: 0;
   vertical-align: top;
 }
-.col-40 {
-  background: #FFF;
-  padding: 30px;
-  color: #000;
-}
+
+/*.col-60*/
 
 .col-60 {
   background: #4e989f;
   width: 606px;
   height: 606px;
-}
-
-#flecha{
-  font-size: 60px;
 }
 
 #juego div {
@@ -85,4 +111,16 @@ li::before {
 @keyframes fadein {
   from { opacity: 0; }
   to   { opacity: 1; }
+}
+
+/****************************************************/
+
+#footer {
+  text-align: center;
+  color: white;
+  background-color:rgb(246, 79, 109);
+  padding-top: 0.5px;
+  padding-bottom: 0.5px;
+  margin: 0px;
+  font-size: 12px;
 }

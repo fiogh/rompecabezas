@@ -2,13 +2,13 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>BMO Arcade</title>
+    <title>ROMPECABEZAS</title>
     <link rel="stylesheet" href="css/juego.css">
     <link href="https://fonts.googleapis.com/css?family=Do+Hyeon|Righteous" rel="stylesheet">
   </head>
   <body>
-    <div class="col-40">
 
+    <div class="col-40">
       <div id="titulo">
         <h1>ROMPECABEZAS</h1>
       </div>
@@ -26,8 +26,11 @@
         <div id="flecha">
         </div>
       </div>
-
+      <div id="mezclar" onclick="mezclarPiezas(30)">
+        <p>MEZCLAR DE NUEVO!</p>
+      </div>
     </div>
+
     <div class="col-60">
       <div id="juego">
           <div class="piezas" id="pieza1"><img src="images/10.jpg" width=200px height=200px></div>
@@ -41,9 +44,19 @@
           <div class="piezas" id="pieza9"> </div>
       </div>
     </div>
-    <div id="footer">
 
+    <div class="col-40">
+      <div id="reloj">
+        <h3>CRONOMETRO</h3>
+        <span id="tiempo">00:00</span>
+      </div>
     </div>
+
+    <div id="footer">
+      <p>Creado por Fiorella Míguez - Desarrolladora Web Jr.</p>
+    </div>
+
+    <script src="js/tictac.js"></script>
     <script src="js/juego.js"></script>
   </body>
 </html>

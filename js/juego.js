@@ -53,7 +53,8 @@ function chequearSiGano() {
 // Implementar alguna forma de mostrar un cartel que avise que ganaste el juego
 function mostrarCartelGanador() {
     if (chequearSiGano()){
-      alert("TENEMOS UN GANADOR!!")
+      pararReloj();
+      alert("TENEMOS UN GANADOR!!");
     }
 }
 
@@ -118,7 +119,6 @@ function moverEnDireccion(direccion) {
         agregarUltimoMovimiento(direccion);
     }
 }
-
 
 //////////////////////////////////////////////////////////
 ////////A CONTINUACIÓN FUNCIONES YA IMPLEMENTADAS.////////
@@ -221,6 +221,7 @@ function mezclarPiezas(veces) {
   setTimeout(function() {
       mezclarPiezas(veces - 1);
     }, 100);
+  comenzarReloj();
 }
 
 /* capturarTeclas: Esta función captura las teclas presionadas por el usuario. Javascript
@@ -255,6 +256,7 @@ function iniciar() {
     mostrarInstrucciones(instrucciones);
     mezclarPiezas(30);
     capturarTeclas();
+    comenzarReloj();
 }
 
 // Ejecutamos la función iniciar
